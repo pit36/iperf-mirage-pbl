@@ -1,0 +1,15 @@
+### Starting build.
+# Target: main.ml.depends, tags: { package(fd-send-recv), package(lwt.syntax), package(mirage-net), syntax(camlp4o), extension:ml, file:main.ml, ocaml, ocamldep, quiet }
+ocamlfind ocamldep -package mirage-net -package fd-send-recv -package lwt.syntax -syntax camlp4o -modules main.ml > main.ml.depends
+# Target: backend.ml.depends, tags: { package(fd-send-recv), package(lwt.syntax), package(mirage-net), syntax(camlp4o), extension:ml, file:backend.ml, ocaml, ocamldep, quiet }
+ocamlfind ocamldep -package mirage-net -package fd-send-recv -package lwt.syntax -syntax camlp4o -modules backend.ml > backend.ml.depends # cached
+# Target: iperf_server.ml.depends, tags: { package(fd-send-recv), package(lwt.syntax), package(mirage-net), syntax(camlp4o), extension:ml, file:iperf_server.ml, ocaml, ocamldep, quiet }
+ocamlfind ocamldep -package mirage-net -package fd-send-recv -package lwt.syntax -syntax camlp4o -modules iperf_server.ml > iperf_server.ml.depends # cached
+# Target: backend.cmo, tags: { package(fd-send-recv), package(lwt.syntax), package(mirage-net), syntax(camlp4o), byte, compile, extension:cmo, extension:ml, file:backend.cmo, file:backend.ml, implem, ocaml, quiet }
+ocamlfind ocamlc -c -package mirage-net -package fd-send-recv -package lwt.syntax -syntax camlp4o -o backend.cmo backend.ml
++ ocamlfind ocamlc -c -package mirage-net -package fd-send-recv -package lwt.syntax -syntax camlp4o -o backend.cmo backend.ml
+File "backend.ml", line 7, characters 11-38:
+Error: This expression has type unit Lwt.t
+       but an expression was expected of type unit
+Command exited with code 2.
+# Compilation unsuccessful.
